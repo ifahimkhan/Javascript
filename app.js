@@ -1,8 +1,11 @@
-let http = require("http");
+let a = 35;
+console.log(typeof a);
 
-http.createServer(function (req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('This is the example of node.js web-based application \n');
+a = "GeeksforGeeks";
+console.log(typeof a);
 
-}).listen(5000,
-    () => console.log('Server running at http://127.0.0.1:5000/'));
+a = true;
+console.log(typeof a);
+
+a = undefined;
+console.log(typeof a);
