@@ -20,9 +20,10 @@ let student = {
 };
 
 
-console.log("Information of variable company:", student);
+console.log("Information of variable student:", student);
 
-console.log("Type of variable company:", typeof student);
+console.log("Type of variable student:", typeof student);
+
 
 function multiply(num1, num2) {
     return num1 * num2;
@@ -33,4 +34,3 @@ let y = 3;
 
 console.log("Multiplication of", x,
     "and", y, "is", multiply(x, y));
-
