@@ -1,0 +1,4 @@
+
+This is the content of the file.
+Node.js allows us to read and write files.
+This content will be displayed on both the console and the browser.
