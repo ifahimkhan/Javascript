@@ -1,7 +1,7 @@
 let a = 35;
 console.log(typeof a);
 
-a = "GeeksforGeeks";
+a = "Fahim";
 console.log(typeof a);
 
 a = true;
