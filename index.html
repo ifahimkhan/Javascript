@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            width: 48%;
+            box-sizing: border-box;
+        }
+
+        button[type="reset"] {
+            background-color: #d9534f;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <div id="nameError" class="error"></div>
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+            <div id="emailError" class="error"></div>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <div id="passwordError" class="error"></div>
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone">
+            <div id="phoneError" class="error"></div>
+
+            <div class="button-container">
+                <button type="submit" onclick="didSubmit(event)">Register</button>
+                <button type="reset" onclick="clearErrors()">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function clearErrors() {
+            document.getElementById('nameError').innerHTML = '';
+            document.getElementById('emailError').innerHTML = '';
+            document.getElementById('passwordError').innerHTML = '';
+            document.getElementById('phoneError').innerHTML = '';
+        };
+
+        function didSubmit(event) {
+            event.preventDefault()
+            clearErrors()
+
+            let valid = true;
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            if (name === '') {
+                document.getElementById('nameError').innerHTML = 'Name is required';
+                valid = false;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '') {
+                document.getElementById('emailError').innerHTML = 'Email is required';
+                valid = false;
+            } else if (!emailRegex.test(email)) {
+                document.getElementById('emailError').innerHTML = 'Please enter a valid email';
+                valid = false;
+            }
+
+            if (password === '') {
+                document.getElementById('passwordError').innerHTML = 'Password is required';
+                valid = false;
+            } else if (password.length < 6) {
+                document.getElementById('passwordError').innerHTML = 'Password must be at least 6 characters long';
+                valid = false;
+            }
+
+            const phoneRegex = /^\d{10}$/;
+            if (phone === '') {
+                document.getElementById('phoneError').innerHTML = 'Phone number is required';
+                valid = false;
+            } else if (!phoneRegex.test(phone)) {
+                document.getElementById('phoneError').innerHTML = 'Phone number must be 10 digits and numeric';
+                valid = false;
+            }
+
+            if (valid) {
+                alert('Form submitted successfully!');
+                console.log({
+                    name: name,
+                    email: email,
+                    password: password,
+                    phone: phone
+                });
+            }
+        }
+    </script>
+
+</body>
+
+</html>
