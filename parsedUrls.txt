@@ -1,0 +1,18 @@
+
+Parsed URL 1:
+
+        Href: https://portal.svkm.ac.in/MPSTME-NM-M/markAttendanceForm
+        Protocol: https:
+        Host: portal.svkm.ac.in
+        Pathname: /MPSTME-NM-M/markAttendanceForm
+        Query: {}
+    
+
+Parsed URL 2:
+
+        Href: https://www.google.com/search?q=google&rlz=1C1CHBD_enIN941IN941&oq=google&aqs=chrome.0.0i131i355i433i512j46i131i199i433i465i512j0i131i433i512j69i60l5.2029j0j4&sourceid=chrome&ie=UTF-8
+        Protocol: https:
+        Host: www.google.com
+        Pathname: /search
+        Query: {"q":"google","rlz":"1C1CHBD_enIN941IN941","oq":"google","aqs":"chrome.0.0i131i355i433i512j46i131i199i433i465i512j0i131i433i512j69i60l5.2029j0j4","sourceid":"chrome","ie":"UTF-8"}
+    
