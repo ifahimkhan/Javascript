@@ -10,7 +10,7 @@ server.on('response', (response) => {
     process.stdout.write(`\n${cursorPrompt}`);
 });
 
-const cursorPrompt = 'taskterm> '; 
+const cursorPrompt = 'todoApp> '; 
 
 const r1 = readline.createInterface({
     input: process.stdin,
