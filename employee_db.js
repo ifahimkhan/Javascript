@@ -12,7 +12,10 @@ connection.connect((err) => {
     
     const createDatabaseQuery = 'CREATE DATABASE Employee_DB';
     connection.query(createDatabaseQuery, (err, result) => {
-        if (err) throw err;
+        if (err) {
+        console.log(err)
+        return
+        }
         console.log("Database 'Employee_DB' created successfully!");
     });
 

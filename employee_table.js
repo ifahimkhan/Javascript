@@ -11,14 +11,14 @@ connection.connect((err) => {
     if (err) throw err;
     console.log("Connected to Employee_DB!");
 
-    const createTableQuery = `CREATE TABLE Employee (
-        Employee_Id INT PRIMARY KEY AUTO_INCREMENT,
-        Employee_Name VARCHAR(255) NOT NULL,
-        Employee_Address VARCHAR(255),
-        Employee_Position VARCHAR(255),
-        Employee_Salary DECIMAL(10, 2),
-    )`;
-
+     const createTableQuery = `CREATE TABLE Employee (
+          Employee_Id INT NOT NULL UNIQUE AUTO_INCREMENT,
+          Employee_Name VARCHAR(255) NOT NULL,
+          Employee_Address VARCHAR(255),
+          Employee_Position VARCHAR(255),
+          Employee_Salary DECIMAL(10, 2),
+          PRIMARY KEY (Employee_Id)
+      )`;
     connection.query(createTableQuery, (err, result) => {
         if (err) throw err;
         console.log("Table 'Employee' created successfully!");
