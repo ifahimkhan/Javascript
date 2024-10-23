@@ -4,14 +4,11 @@
     <title>AngularJS</title>
     <script src="js/angular.min.js"></script>
     <script src="js/custom.js"></script>
+
 </head>
 <body>
-<div ng-init="rollno='11';student_name='Fahim';sap_id='1234'">
-<span ng-bind="sap_id"></span>
-<span ng-bind="student_name"></span>
-<span ng-bind="rollno"></span>
-
+<div ng-controller="JsonController">
+    <menu></menu>
 </div>
-
 </body>
 </html>

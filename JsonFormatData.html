@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="appModule">
+<head>
+    <title>AngularJS</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/custom.js"></script>
+
+</head>
+<body>
+<H1 ng-bind="collegeName"></H1>
+<div ng-controller="JsonController">
+    <ol>
+        <li ng-repeat="branch in branches">{{branch}}</li>
+    </ol>
+
+    <ol>
+        <li ng-repeat="branch in jsonBranch">{{"ID"+branch.branchId+" Name"+branch.branchName}}</li>
+    </ol>
+</div>
+</body>
+</html>

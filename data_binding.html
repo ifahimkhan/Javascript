@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html ng-app="">
+<html ng-app="appModule">
 <head>
+
     <title>AngularJS</title>
     <script src="js/angular.min.js"></script>
+    <script src="js/custom.js"></script>
+    <style type="text/css">
+        body{
+        background-color:{{color}};
+        }
+
+
+
+    </style>
 </head>
 <body>
-<input type="number" ng-model="number"></br>
-Your Entered Number is: {{number}}
-</br>
+<div ng-controller="mController">
+    <input type="number" ng-model="number"></br>
+    Your Entered Number is: {{number}}
+    </br>
 
+    <input type="text" ng-model="name"></br>
+    Your Name is:
+    <span ng-bind="name"></span>
+
+</div>
+</br>
+<div ng-controller="colorController">
+    <input type="text" placeholder="enter color"></br>
+    <input type="button" value="setColor" onClick="setColor()">
+
+</div>
 </body>
 </html>
