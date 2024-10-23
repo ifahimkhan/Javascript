@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS Form, Data Binding, Controllers, $http, DOM, and Events</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+    var app = angular.module('myApp', []);
+
+    // Controller
+    app.controller('MainController', function($scope, $http) {
+      // Data Binding Example
+      $scope.user = { name: '', email: '' };
+
+      // Form Submission Function
+      $scope.submitForm = function() {
+        console.log("Form Submitted: ", $scope.user);
+        alert("Form Submitted:"+$scope.user.name+" "+$scope.user.email)
+      };
+
+      // Handling HTTP Request using $http (for demo purposes)
+      $scope.loadData = function() {
+        $http.get('https://jsonplaceholder.typicode.com/posts')
+        .then(function(response) {
+          $scope.posts = response.data;
+        });
+      };
+
+      // HTML DOM Manipulation
+      $scope.changeBackgroundColor = function() {
+        document.getElementById('formContainer').style.backgroundColor = 'lightblue';
+      };
+    });
+  </script>
+</head>
+<body ng-controller="MainController">
+
+<h3>AngularJS Form Example</h3>
+
+<!-- Form Container -->
+<div id="formContainer">
+    <!-- Form with Data Binding and Event Handling -->
+    <form ng-submit="submitForm()">
+        Name: <input type="text" ng-model="user.name"><br><br>
+        Email: <input type="email" ng-model="user.email"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Data Binding Example -->
+    <h4>Preview:</h4>
+    <p>Name: {{ user.name }}</p>
+    <p>Email: {{ user.email }}</p>
+</div>
+
+<!-- Button to Change Background Color -->
+<button ng-click="changeBackgroundColor()">Change Form Background Color</button>
+
+<!-- Fetch and Display Data using $http -->
+<button ng-click="loadData()">Load Data</button>
+<ul>
+    <li ng-repeat="post in posts">{{ post.title }}</li>
+</ul>
+
+</body>
+</html>

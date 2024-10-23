@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS Form Validation Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+    var app = angular.module('myApp', []);
+
+    app.controller('FormController', function($scope) {
+      $scope.user = {};
+
+      // Form submission
+      $scope.submitForm = function(form) {
+        if (form.$valid) {
+          alert('Form is valid and submitted successfully!');
+        } else {
+          alert('Please correct the errors in the form!');
+        }
+      };
+    });
+  </script>
+</head>
+<body ng-controller="FormController">
+
+<h3>AngularJS Form Validation</h3>
+
+<form name="userForm" ng-submit="submitForm(userForm)" novalidate>
+
+    Name: <input type="text" name="name" ng-model="user.name" required>
+    <span style="color:red" ng-show="userForm.name.$dirty && userForm.name.$invalid">
+      <small>Name is required!</small>
+    </span><br><br>
+
+    Email: <input type="email" name="email" ng-model="user.email" required>
+    <span style="color:red" ng-show="userForm.email.$dirty && userForm.email.$invalid">
+      <small ng-show="userForm.email.$error.required">Email is required!</small>
+      <small ng-show="userForm.email.$error.email">Enter a valid email!</small>
+    </span><br><br>
+
+    Password: <input type="password" name="password" ng-model="user.password" ng-minlength="8" ng-maxlength="12" required>
+    <span style="color:red" ng-show="userForm.password.$dirty && userForm.password.$invalid">
+      <small ng-show="userForm.password.$error.required">Password is required!</small>
+      <small ng-show="userForm.password.$error.minlength">Password must be at least 8 characters!</small>
+      <small ng-show="userForm.password.$error.maxlength">Password must be at most 12 characters!</small>
+    </span><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
