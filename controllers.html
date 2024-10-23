@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS Controller with Forms</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+    var app = angular.module('myApp', []);
+    app.controller('FormController', function($scope) {
+      $scope.name = "";
+      $scope.email = "";
+    });
+
+    </script>
+</head>
+<body>
+
+<div ng-controller="FormController">
+    <h3>AngularJS Form Input Display</h3>
+    <form>
+        Name: <input type="text" ng-model="name"><br>
+        Email: <input type="email" ng-model="email"><br>
+    </form>
+
+    <p>Your name is: {{ name }}</p>
+    <p>Your email is: {{ email }}</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="">
+<head>
+    <title>AngularJS Expressions Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<!-- Numbers and Strings -->
+<h3>Displaying Numbers and Strings</h3>
+<div ng-init="stringVar = 'Hello, AngularJS'; numberVar = 42">
+    <p>String: {{ stringVar }}</p>
+    <p>Number: {{ numberVar }}</p>
+</div>
+
+<!-- Object -->
+<h3>Displaying Objects</h3>
+<div ng-init="person = {name: 'John', age: 25}">
+    <p>Person Name: {{ person.name }}</p>
+    <p>Person Age: {{ person.age }}</p>
+</div>
+
+<!-- Array -->
+<h3>Displaying Arrays</h3>
+<div ng-init="colors = ['Red', 'Green', 'Blue']">
+    <ul>
+        <li ng-repeat="color in colors">{{ color }}</li>
+    </ul>
+</div>
+
+</body>
+</html>
